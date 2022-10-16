@@ -42,7 +42,7 @@ class ModifyNoteFragment: Fragment(R.layout.fragment_modify_note) {
     }
 
     private fun getArgs() {
-        noteId = arguments?.getInt(Constants.NOTE_ID) ?: 0
+        noteId = arguments?.getInt(Constants.ARGS_NOTE_ID) ?: 0
     }
 
     private fun getNote(){

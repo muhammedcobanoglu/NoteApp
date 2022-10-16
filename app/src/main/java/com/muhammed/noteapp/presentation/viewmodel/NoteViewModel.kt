@@ -49,7 +49,7 @@ class NoteViewModel @Inject constructor(
         state.value = NoteState.ShowToast(message)
     }
 
-    fun getAllNotes(){
+    private fun getAllNotes(){
         viewModelScope.launch {
             getAllNotesUseCase.execute()
                 .onStart {

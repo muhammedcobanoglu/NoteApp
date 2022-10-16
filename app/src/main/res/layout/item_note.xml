@@ -32,21 +32,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:padding="@dimen/dp_4"
+                android:ellipsize="end"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:paddingVertical="@dimen/dp_8"
                 android:textSize="@dimen/textSize_normal"
                 android:textColor="@color/white"
-                tools:text="Title" />
+                tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/description_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:paddingHorizontal="@dimen/dp_4"
-                android:paddingBottom="@dimen/dp_4"
+                android:ellipsize="end"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_8"
                 android:textSize="@dimen/textSize_lite"
                 android:textColor="@color/white"
-                tools:text="Description" />
+                tools:text="@tools:sample/lorem/random" />
 
         </LinearLayout>
 

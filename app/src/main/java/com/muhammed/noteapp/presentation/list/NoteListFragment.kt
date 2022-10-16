@@ -34,9 +34,8 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list){
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentNoteListBinding.bind(view)
         setupRecyclerView()
-        observe()
+        setupObservers()
         openNoteDetailPage()
-        getNotes()
     }
 
     private fun openNoteDetailPage(){
@@ -54,14 +53,10 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list){
 
         mAdapter.setItemTapListener(object : NoteListAdapter.OnItemTapListener {
             override fun onTap(note: Note) {
-                val bundle = bundleOf(Constants.NOTE_ID to note.id)
+                val bundle = bundleOf(Constants.ARGS_NOTE_ID to note.noteId)
                 this@NoteListFragment.navigate(R.id.action_noteListFragment_to_modifyNoteFragment, bundle)
             }
         })
-    }
-
-    private fun getNotes(){
-        viewModel.getAllNotes()
     }
 
     private fun observeState(){
@@ -77,17 +72,17 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list){
         viewModel.mNotes
             .flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
             .onEach { notes ->
-                handleNotes(notes)
+                updateNotes(notes)
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    private fun observe(){
+    private fun setupObservers(){
         observeState()
         observeNotes()
     }
 
-    private fun handleNotes(notes: List<Note>){
+    private fun updateNotes(notes: List<Note>){
         binding.notesRecyclerView.adapter?.let {
             if(it is NoteListAdapter){
                 it.updateList(notes)
@@ -97,13 +92,13 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list){
 
     private fun handleState(state: NoteState){
         when(state){
-            is NoteState.IsLoading -> handleLoading(state.isLoading)
+            is NoteState.IsLoading -> setLoadingVisibility(state.isLoading)
             is NoteState.ShowToast -> requireActivity().showToast(state.message)
-            is NoteState.Init -> Unit
+            else -> Unit
         }
     }
 
-    private fun handleLoading(isLoading: Boolean){
+    private fun setLoadingVisibility(isLoading: Boolean){
         if(isLoading){
             binding.loadingProgressBar.show()
         }else{

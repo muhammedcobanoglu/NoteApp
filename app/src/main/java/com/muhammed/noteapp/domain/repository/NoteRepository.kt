@@ -1,4 +1,4 @@
-package com.muhammed.noteapp.data.source.local.repository
+package com.muhammed.noteapp.domain.repository
 
 import com.muhammed.noteapp.data.model.Note
 import com.muhammed.noteapp.data.util.Result

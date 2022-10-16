@@ -3,10 +3,10 @@ package com.muhammed.noteapp.di
 import android.content.Context
 import androidx.room.Room
 import com.muhammed.noteapp.data.source.local.NoteDatabase
-import com.muhammed.noteapp.data.source.local.repository.NoteRepository
-import com.muhammed.noteapp.data.source.local.repository.NoteRepositoryImpl
-import com.muhammed.noteapp.data.source.local.repository.datasource.NoteLocalDataSource
-import com.muhammed.noteapp.data.source.local.repository.datasourceImpl.NoteLocalDataSourceImpl
+import com.muhammed.noteapp.domain.repository.NoteRepository
+import com.muhammed.noteapp.data.source.repository.NoteRepositoryImpl
+import com.muhammed.noteapp.data.source.local.datasource.NoteLocalDataSource
+import com.muhammed.noteapp.data.source.local.datasourceImpl.NoteLocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

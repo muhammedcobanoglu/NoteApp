@@ -1,6 +1,6 @@
 package com.muhammed.noteapp.di
 
-import com.muhammed.noteapp.data.source.local.repository.NoteRepository
+import com.muhammed.noteapp.domain.repository.NoteRepository
 import com.muhammed.noteapp.domain.usecase.*
 import dagger.Module
 import dagger.Provides

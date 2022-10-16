@@ -1,8 +1,8 @@
-package com.muhammed.noteapp.data.source.local.repository.datasourceImpl
+package com.muhammed.noteapp.data.source.local.datasourceImpl
 
 import com.muhammed.noteapp.data.model.Note
 import com.muhammed.noteapp.data.source.local.NoteDao
-import com.muhammed.noteapp.data.source.local.repository.datasource.NoteLocalDataSource
+import com.muhammed.noteapp.data.source.local.datasource.NoteLocalDataSource
 import com.muhammed.noteapp.data.util.Result
 import com.muhammed.noteapp.data.util.Result.Error
 import com.muhammed.noteapp.data.util.Result.Success

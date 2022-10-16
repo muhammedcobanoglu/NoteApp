@@ -9,13 +9,13 @@ interface NoteDao {
     @Query("SELECT * FROM notes")
     fun observeNotes(): Flow<List<Note>>
 
-    @Query("SELECT * FROM notes WHERE note_id = :noteId")
+    @Query("SELECT * FROM notes WHERE id = :noteId")
     fun observeNoteById(noteId: Int): Flow<Note>
 
     @Query("SELECT * FROM notes")
     suspend fun getNotes(): List<Note>
 
-    @Query("SELECT * FROM notes WHERE note_id = :noteId")
+    @Query("SELECT * FROM notes WHERE id = :noteId")
     suspend fun getNoteById(noteId: String): Note?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -24,10 +24,10 @@ interface NoteDao {
     @Update
     suspend fun updateNote(note: Note): Int
 
-    @Query("UPDATE notes SET modified = :modified WHERE note_id = :noteId")
+    @Query("UPDATE notes SET modified = :modified WHERE id = :noteId")
     suspend fun updateNote(noteId: Int, modified: Boolean): Int
 
-    @Query("DELETE FROM notes WHERE note_id = :noteId")
+    @Query("DELETE FROM notes WHERE id = :noteId")
     suspend fun deleteNoteById(noteId: Int): Int
 
     @Query("DELETE FROM notes")

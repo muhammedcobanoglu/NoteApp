@@ -1,9 +1,10 @@
-package com.muhammed.noteapp.data.source.local.repository
+package com.muhammed.noteapp.data.source.repository
 
 import com.muhammed.noteapp.data.model.Note
-import com.muhammed.noteapp.data.source.local.repository.datasource.NoteLocalDataSource
+import com.muhammed.noteapp.data.source.local.datasource.NoteLocalDataSource
 import com.muhammed.noteapp.data.util.Result
 import com.muhammed.noteapp.data.util.Result.Success
+import com.muhammed.noteapp.domain.repository.NoteRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 

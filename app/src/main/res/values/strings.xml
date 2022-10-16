@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+
+    <string name="create_new_note">Add New Note</string>
+    <string name="modify_note">Modify Note</string>
+    <string name="delete_note">Delete Note</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="image_url">Image Url</string>
+    <string name="error_title">Please enter a title</string>
+    <string name="error_description">Please enter a description</string>
+    <string name="new_note_added">New note added</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="note_modified">Note modified</string>
+    <string name="modified">modified</string>
+</resources>

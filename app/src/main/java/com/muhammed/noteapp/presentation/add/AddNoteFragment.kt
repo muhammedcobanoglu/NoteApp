@@ -31,7 +31,7 @@ class AddNoteFragment: Fragment(R.layout.fragment_add_note) {
             val description = binding.descriptionEditText.text.toString().trim()
             val imageUrl = binding.imageUrlEditText.text.toString().trim()
             if(validate(title, description)){
-                viewModel.addNote(Note(0, title, description, imageUrl, false)).observe(viewLifecycleOwner) { noteId ->
+                viewModel.addNote(Note(0, title, description, imageUrl, false, System.currentTimeMillis())).observe(viewLifecycleOwner) { noteId ->
                     if (noteId != 0L) {
                         this@AddNoteFragment.navigate(R.id.action_addNoteFragment_to_noteListFragment)
                         Snackbar.make(

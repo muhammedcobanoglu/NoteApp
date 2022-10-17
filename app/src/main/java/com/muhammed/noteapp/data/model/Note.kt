@@ -11,5 +11,6 @@ data class Note(
     @ColumnInfo(name = "title") var title: String = "",
     @ColumnInfo(name = "description") var description: String = "",
     @ColumnInfo(name = "url") var url: String = "",
-    @ColumnInfo(name = "modified") var isModified: Boolean = false
+    @ColumnInfo(name = "modified") var isModified: Boolean = false,
+    @ColumnInfo(name = "created_at") var createdAt: Long? = null,
 )

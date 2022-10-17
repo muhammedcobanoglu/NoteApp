@@ -8,8 +8,10 @@ import com.muhammed.noteapp.R
 import com.muhammed.noteapp.data.model.Note
 import com.muhammed.noteapp.databinding.ItemNoteBinding
 import com.muhammed.noteapp.util.GlideExtensions.loadWithUrl
+import com.muhammed.noteapp.util.dateToString
 import com.muhammed.noteapp.util.hide
 import com.muhammed.noteapp.util.setRoundedBackground
+import com.muhammed.noteapp.util.show
 
 class NoteListAdapter(private val notes: MutableList<Note>) : RecyclerView.Adapter<NoteListAdapter.ViewHolder>(){
     private var onTapListener: OnItemTapListener? = null
@@ -19,6 +21,13 @@ class NoteListAdapter(private val notes: MutableList<Note>) : RecyclerView.Adapt
             itemBinding.titleTextView.text = note.title
             itemBinding.descriptionTextView.text = note.description
             itemBinding.imageView.loadWithUrl(note.url)
+            val createdAt = note.createdAt?.dateToString()
+            if (createdAt.isNullOrEmpty()) {
+                itemBinding.createdAtTextView.hide()
+            } else {
+                itemBinding.createdAtTextView.show()
+                itemBinding.createdAtTextView.text = createdAt
+            }
             if (note.isModified) {
                 itemBinding.isModified.setRoundedBackground(ContextCompat.getColor(itemBinding.isModified.context, R.color.purple_500), itemBinding.isModified.context, 0F, 0F, 8F, 0F)
             } else {

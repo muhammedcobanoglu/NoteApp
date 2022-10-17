@@ -2,6 +2,7 @@ package com.muhammed.noteapp.presentation.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -36,6 +37,16 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list){
         setupRecyclerView()
         setupObservers()
         openNoteDetailPage()
+        onBackPressedDispatcher()
+    }
+
+    private fun onBackPressedDispatcher() {
+        requireActivity().onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            })
     }
 
     private fun openNoteDetailPage(){
